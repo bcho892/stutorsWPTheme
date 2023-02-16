@@ -214,7 +214,14 @@ ul.wp-block-latest-posts.is-grid.alignfull {
 .wp-block-button a {
 	border-radius: 5px;
 	background: var(--color-theme-blue);
+	transition: background-color .2s;
 }
+
+.wp-block-button a:hover {
+	color: white;
+	background-color: var(--color-theme-grey);
+}
+
 
 .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color), .wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color){
 	color: white;
