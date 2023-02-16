@@ -6,11 +6,11 @@
  **/
 
 :root {
-	--content-width: 45rem;
+	--content-width: 1400px;
 	--dropdown-symbol-width: 0.7em;
 
 	/* Typography */
-	--global-font-family: "Crimson Text", serif;
+	--global-font-family: "Roboto", sans-serif;
 	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--global-font-size: 20;
 	--global-font-line-height: 1.4;
@@ -19,16 +19,16 @@
 	--font-size-small: calc(16 / var(--global-font-size) * 1rem);
 	--font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
 	--font-size-large: calc(36 / var(--global-font-size) * 1rem);
-	--font-size-larger: calc(48 / var(--global-font-size) * 1rem);
+	--font-size-larger: calc(48 / var(--global-font-size) * 1.2rem);
 
 	/* Colors */
-	--global-font-color: #333;
+	--global-font-color: rgb(33, 33, 33);
 	--border-color-dark: #333;
 	--border-color-light: #ccc;
-	--color-link: #0073aa;
+	--color-link: var(--color-theme-blue);
 	--color-link-visited: #333;
 	--color-link-active: #00a0d2;
-	--color-quote-border: #000;
+	--color-quote-border: var(--color-theme-blue);
 	--color-quote-citation: #6c7781;
 
 	/* Custom editor colors */
@@ -36,11 +36,11 @@
 	--color-theme-secondary: #41848f;
 	--color-theme-red: #c0392b;
 	--color-theme-green: #27ae60;
-	--color-theme-blue: #2980b9;
+	--color-theme-blue: #618DFF;
 	--color-theme-yellow: #f1c40f;
 	--color-theme-black: #1c2833;
-	--color-theme-grey: #95a5a6;
-	--color-theme-white: #ecf0f1;
+	--color-theme-grey: #D9D9D9;
+	--color-theme-white: #F3F3F3;
 	--color-custom-daylight: #97c0b7;
 	--color-custom-sun: #eee9d1;
 }

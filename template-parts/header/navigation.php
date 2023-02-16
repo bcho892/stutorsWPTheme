@@ -46,6 +46,9 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 	<?php echo $menu_toggle_button; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 
 	<div class="primary-menu-container">
+		<?php if ( function_exists( 'the_custom_logo' ) ) {
+				the_custom_logo();
+			} ?>
 		<?php wp_rig()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 	</div>
 </nav><!-- #site-navigation -->

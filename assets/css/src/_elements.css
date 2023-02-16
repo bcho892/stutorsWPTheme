@@ -22,6 +22,10 @@ html {
 
 /* stylelint-disable */
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
 	background: #fff;
 	/* Fallback for when there is no custom background color defined. */
 }
@@ -39,10 +43,12 @@ hr {
 ul,
 ol {
 	margin: 0 0 1.5em 0;
-	padding-left: 1.5em;
+
 }
 
 ul {
+	margin-block-end: 0.5rem;
+	padding-inline-start: 0;
 	list-style: disc;
 }
 

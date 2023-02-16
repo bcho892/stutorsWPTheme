@@ -60,7 +60,8 @@
 	text-decoration: none;
 	top: 5px;
 	width: auto;
-	z-index: 100000; /* Above WP toolbar. */
+	z-index: 100000;
+	/* Above WP toolbar. */
 }
 
 /* Do not show the outline on the skip link target. */
@@ -72,18 +73,23 @@
 # Layouts
 --------------------------------------------------------------*/
 .site {
-	margin: 0 auto;
-	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-top: 4rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 @media (--sidebar-query) {
 
 	.has-sidebar .site {
-		margin: 0 1em;
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		grid-gap: 2rem;
-		justify-content: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 100vh;
 	}
 
 	.site-header,
@@ -92,6 +98,10 @@
 	}
 
 	.site-main {
+		flex-grow: 1;
+		justify-self: center;
+		max-width: 1400px;
+		width: 100%;
 		grid-column: 1;
 		min-width: 0;
 	}
@@ -109,6 +119,7 @@
 textarea {
 	width: 100%;
 }
+
 /* stylelint-enable */
 
 /* stylelint-disable */
@@ -126,6 +137,7 @@ input[type="submit"] {
 	padding: 0.6em 1em 0.4em;
 	cursor: pointer;
 }
+
 /* stylelint-enable */
 
 button:hover,
@@ -209,21 +221,30 @@ select {
 }
 
 .custom-logo-link {
+	height: 2rem;
+	width: auto;
 	display: inline-block;
-	margin: 0 auto 1em;
+	overflow: hidden;
+}
+
+.custom-logo-link img {
+	height: 2rem;
+	width: auto;
 }
 
 .site-branding {
+	display: none;
 	text-align: center;
 	padding: 60px 0 1.75em;
 
-	@media screen and (max-width: 600px) {
+	@media (--narrow-menu-query) {
 		padding: 1.75em 0;
 		margin: 0;
 	}
 }
 
 .site-title {
+	display: none;
 	margin: 0 1em;
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
@@ -267,11 +288,11 @@ select {
 	&.icon {
 		border: none;
 		position: absolute;
-		top: 40px;
+		top: 10px;
 		left: 5px;
 		display: none;
 
-		@media screen and (max-width: 600px) {
+		@media (--narrow-menu-query) {
 			display: block;
 		}
 
@@ -297,7 +318,7 @@ select {
 			display: block;
 		}
 
-		@media screen and (min-width: 600px) {
+		@media (--wide-menu-query) {
 
 			& .menu {
 				display: flex;
@@ -321,7 +342,7 @@ select {
 			display: block;
 		}
 
-		@media screen and (min-width: 600px) {
+		@media (--wide-menu-query) {
 
 			& .menu {
 				display: flex;
@@ -329,15 +350,16 @@ select {
 			}
 		}
 
-		@media screen and (max-width: 600px) {
+		@media (--narrow-menu-query) {
 
 			& .primary-menu-container {
+				z-index: 1000;
 				position: absolute;
 				background: #fff;
 				width: 100vw;
-				top: 300px;
+				top: 4rem;
 				left: 0;
-				height: 200%;
+				height: 100vh;
 				padding: 20px 30px;
 				opacity: 0;
 				transition: opacity 0.3s, top 0.3s ease-out;
@@ -350,7 +372,7 @@ select {
 				}
 
 				& .primary-menu-container {
-					top: 180px;
+					top: 4rem;
 					opacity: 1;
 					transition: opacity 0.3s, top 0.3s ease-out;
 				}
@@ -452,9 +474,9 @@ select {
 	 * If the dropdown toggle is active with JS, then
 	 * we'll take care of showing the submenu with JS.
 	 */
-	.nav--toggle-sub li:hover > ul,
-	.nav--toggle-sub li.menu-item--toggled-on > ul,
-	.nav--toggle-sub li:not(.menu-item--has-toggle):focus > ul {
+	.nav--toggle-sub li:hover>ul,
+	.nav--toggle-sub li.menu-item--toggled-on>ul,
+	.nav--toggle-sub li:not(.menu-item--has-toggle):focus>ul {
 		display: block;
 	}
 
@@ -466,7 +488,7 @@ select {
 	 * This selector needs to stay separated, otherwise submenus
 	 * will not be displayed with IE/Edge.
 	 */
-	.nav--toggle-sub li:not(.menu-item--has-toggle):focus-within > ul {
+	.nav--toggle-sub li:not(.menu-item--has-toggle):focus-within>ul {
 		display: block;
 	}
 }
@@ -475,20 +497,29 @@ select {
 ## Main navigation menu
 --------------------------------------------------------------*/
 .main-navigation {
-	display: block;
-	margin: 0 auto 2em;
+	height: 4rem;
+	position: fixed;
+	top: 0;
+	background: white;
+	box-shadow: 0 0 10px rgb(33, 33, 33);
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin: 0;
 	padding: 0 1em;
-	max-width: var(--content-width);
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
+
 }
 
 .main-navigation a {
 	display: block;
-	width: 100%;
-	padding: 0.5em 1em 0.5em 0;
+	padding: 0 0.5em;
 	text-decoration: none;
 	color: var(--global-font-color);
+	font-weight: 200;
 }
 
 .main-navigation a:hover,
@@ -496,13 +527,13 @@ select {
 	text-decoration: underline;
 }
 
-.main-navigation .current-menu-item > a,
-.main-navigation .current-menu-ancestor > a {
+.main-navigation .current-menu-item>a,
+.main-navigation .current-menu-ancestor>a {
 	font-weight: 600;
 }
 
 .main-navigation ul {
-	display: block;
+	display: flex;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -511,6 +542,7 @@ select {
 .main-navigation ul ul li {
 	padding-left: 1em;
 }
+
 
 @media (--wide-menu-query) {
 
@@ -535,6 +567,7 @@ select {
 		padding-left: 0;
 		margin-left: 0;
 	}
+
 	/* stylelint-enable */
 
 	.main-navigation ul ul li a {
@@ -549,9 +582,15 @@ select {
 	}
 
 	.main-navigation .menu {
+
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+	}
+
+	.primary-menu-container {
+		display: flex;
+		align-items: center;
 	}
 }
 
@@ -665,15 +704,66 @@ select {
 # Footer
 --------------------------------------------------------------*/
 .site-footer {
-	margin: 1em 0 0;
-	padding: 2em 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	justify-self: flex-end;
+	width: 100%;
+	margin-top: auto;
+	padding: 1em 0;
 	font-family: var(--highlight-font-family);
 	font-stretch: condensed;
+	background-color: var(--color-theme-white);
 }
 
 .site-info {
+	max-width: var(--content-width);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
+	margin-bottom: 0;
+	width: 100%;
+
 }
+
+.site-footer .social-menu-class {
+	@media (--narrow-menu-query) {
+		padding: 0 1em;
+	}
+}
+
+.site-footer .social-menu-class .menu {
+	list-style: none;
+	display: flex;
+	gap: .5rem;
+	font-size: 1rem;
+	text-decoration: none;
+}
+
+.site-footer .footer-menu-class .menu {
+	display: flex;
+	list-style: none;
+	gap: .5rem;
+
+	@media (--narrow-menu-query) {
+		margin-right: auto;
+		flex-direction: column;
+	}
+}
+
+.site-footer .footer-menu-class {
+	display: flex;
+	justify-content: center;
+	max-width: var(--content-width);
+	width: 100%;
+	@media (--narrow-menu-query) {
+		padding: 0 1em;
+	}
+}
+
+
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -693,3 +783,7 @@ were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/*--------------------------------------------------------------
+# Home Page Classes
+--------------------------------------------------------------*/

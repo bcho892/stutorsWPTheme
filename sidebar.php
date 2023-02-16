@@ -8,6 +8,8 @@
  */
 
 namespace WP_Rig\WP_Rig;
+//dont use sidebar
+return; 
 
 if ( ! wp_rig()->is_primary_sidebar_active() ) {
 	return;

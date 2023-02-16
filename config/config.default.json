@@ -1,18 +1,18 @@
 {
   "theme": {
     "PHPNamespace": "WP_Rig\\WP_Rig",
-    "slug": "wp-rig",
-    "name": "WP Rig",
+    "slug": "STutors-WPRig",
+    "name": "STutors-WPRig",
     "theme_uri": "https://github.com/wprig/wprig/",
-    "author": "The WP Rig Contributors",
-    "author_uri": "https://wprig.io/",
-    "description": "A progressive theme development rig for WordPress.",
+    "author": "Benson Cho",
+    "author_uri": "https://github.com/bcho892",
+    "description": "Theme for the the tutorin company STutors NZ. Based of WPRig theme development rig.",
     "version": "1.0.0"
   },
   "dev": {
     "browserSync": {
       "live": true,
-      "proxyURL": "wprig.test:8888",
+      "proxyURL": "http://localhost/wordpress/",
       "bypassPort": "8181",
       "https": false
     },

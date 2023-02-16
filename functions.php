@@ -58,6 +58,18 @@ if ( file_exists( get_template_directory() . '/vendor/autoload.php' ) ) {
 	}
 	spl_autoload_register( '_wp_rig_autoload' );
 }
+// Allow custom logo
+add_theme_support('custom-logo');
+
+// Allow menu in footer
+register_nav_menus( array(
+    'secondary' => __( 'Footer Menu', 'generatepress' ),
+) );
+
+// Allow social media icons
+register_nav_menus( array(
+    'socials' => __( 'Socials Menu', 'generatepress' ),
+) );
 
 // Load the `wp_rig()` entry point function.
 require get_template_directory() . '/inc/functions.php';
