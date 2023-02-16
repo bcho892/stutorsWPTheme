@@ -27,7 +27,7 @@
 	--border-color-light: #ccc;
 	--color-link: var(--color-theme-blue);
 	--color-link-visited: #333;
-	--color-link-active: #00a0d2;
+	--color-link-active: var(--color-theme-blue);
 	--color-quote-border: var(--color-theme-blue);
 	--color-quote-citation: #6c7781;
 
